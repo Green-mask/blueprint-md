@@ -1,0 +1,24 @@
+{
+  "overview": "A comprehensive house construction planning web app that guides users through every stage of building — from GPS-based site surveying and field measurements to 3D blueprinting, structural planning, and interior finishes. Designed for both homeowners and professional architects.",
+  "features": [
+    "GPS/GNSS field measurement tool with real-time location tracking",
+    "Interactive map with waypoint placement and polygon drawing",
+    "Automatic area, perimeter, and distance calculations",
+    "Save and manage land plots with names, dates, and notes",
+    "Walk-with-GPS mode for automatic boundary capture",
+    "Draft auto-save for incomplete measurements",
+    "Construction workflow integration with JSON export"
+  ],
+  "category": "productivity",
+  "tags": [
+    "construction",
+    "architecture",
+    "gps",
+    "surveying",
+    "floor-plan",
+    "3d",
+    "blueprint",
+    "home-building"
+  ],
+  "last_updated": "2026-04-29T02:11:10.909Z"
+}

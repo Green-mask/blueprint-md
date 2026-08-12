@@ -1,0 +1,44 @@
+type Waypoint = 
+ record {
+   accuracy: float64;
+   lat: float64;
+   lon: float64;
+   sequence: nat;
+   timestamp: int;
+ };
+type UserId = principal;
+type Timestamp = int;
+type PlotStatus = 
+ variant {
+   complete;
+   draft;
+ };
+type PlotInput = 
+ record {
+   name: text;
+   notes: text;
+   waypoints: vec Waypoint;
+ };
+type PlotId = nat;
+type Plot = 
+ record {
+   areaSqm: float64;
+   createdAt: Timestamp;
+   id: PlotId;
+   name: text;
+   notes: text;
+   owner: UserId;
+   perimeterM: float64;
+   status: PlotStatus;
+   updatedAt: Timestamp;
+   waypoints: vec Waypoint;
+ };
+service : {
+  createPlot: (input: PlotInput) -> (PlotId);
+  deletePlot: (plotId: PlotId) -> ();
+  exportPlot: (plotId: PlotId) -> (opt Plot) query;
+  getPlot: (plotId: PlotId) -> (opt Plot) query;
+  listPlots: () -> (vec Plot) query;
+  saveDraftPlot: (input: PlotInput) -> (PlotId);
+  updatePlot: (plotId: PlotId, input: PlotInput) -> ();
+}

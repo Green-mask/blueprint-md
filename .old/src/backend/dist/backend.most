@@ -1,0 +1,49 @@
+// Version: 1.0.0
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type PlotId__984459779 = Nat;
+type PlotInternal__987749018 =
+  {
+    var areaSqm : Float;
+    createdAt : Timestamp__301639476;
+    id : PlotId__984459779;
+    var name : Text;
+    var notes : Text;
+    owner : UserId__158757552;
+    var perimeterM : Float;
+    var status : PlotStatus__826070414;
+    var updatedAt : Timestamp__301639476;
+    var waypoints : [Waypoint__303305338]
+  };
+type PlotStatus__826070414 = {#complete; #draft};
+type Timestamp__301639476 = Int;
+type UserId__158757552 = Principal;
+type Waypoint__303305338 =
+  {
+    accuracy : Float;
+    lat : Float;
+    lon : Float;
+    sequence : Nat;
+    timestamp : Int
+  };
+actor {
+  stable counter : {var nextId : Nat};
+  stable draftIndex :
+    {
+      var root : Node__46230540<UserId__158757552, PlotId__984459779>;
+      var size : Nat__490723111
+    };
+  stable nextPlotId : Nat;
+  stable plots :
+    {
+      var root : Node__46230540<PlotId__984459779, PlotInternal__987749018>;
+      var size : Nat__490723111
+    }
+};
